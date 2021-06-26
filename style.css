@@ -1,0 +1,45 @@
+body {
+    background-color: pink;
+    display: block;
+}
+
+nav {
+    float: left;
+    font-size: 18px;
+    margin-top: 15px;
+    text-decoration: none;
+}
+
+.timer p {
+    float: right;
+    font-size: 18px;
+}
+
+main {
+    text-align: center;
+    padding-top: 50px;
+    display: block;
+}
+
+h1 {
+    text-align: center;
+    font-size: 32px;
+}
+
+p {
+    display: inline-block;
+    text-align: center;
+    font-size: 24px;
+    padding-left: 100px;
+    padding-right: 100px;
+
+}
+
+button {
+    text-align: center;
+    background-color: palevioletred;
+    padding: 10px;
+    font-size: 16px;
+    align-content: center;
+    cursor: pointer;
+}
