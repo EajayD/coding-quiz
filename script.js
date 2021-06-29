@@ -1,12 +1,15 @@
 // Pointers
 var instructions = document.querySelector(".instructions");
 var questions = document.querySelector(".questions");
+var timer = document.querySelector(".timer");
+var seconds = document.querySelector("#seconds");
 var start = document.querySelector("#start");
 var ask = document.querySelector("#ask");
 var choiceOne = document.querySelector("#select1");
 var choiceTwo = document.querySelector("#select2");
 var choiceThree = document.querySelector("#select3");
 var choiceFour = document.querySelector("#select4");
+var timeLeft = 60;
 
 // Hides question area on start up
 questions.style.display = "none";
@@ -50,10 +53,22 @@ var inquiry = [
 ];
 
 function beginTest() {
+
+    var timerInterval = setInterval(function(){
+        timeLeft--;
+        seconds.textContent = timeLeft;
+        if (timeLeft === 0) {
+            clearInterval(timerInterval);
+        }
+    }, 1000);
+
+
+    // reveals question block, hides other elements
     questions.style.display = "block";
     instructions.style.display = "none";
     start.style.display = "none";
 
+    // fill content
     ask.textContent = (inquiry[0].question);
     choiceOne.textContent = (inquiry[0].c1);
     choiceTwo.textContent = (inquiry[0].c2);
