@@ -64,6 +64,7 @@ function beginTest() {
         seconds.textContent = timeLeft;
         if (timeLeft === 0 || timeLeft < 0) {
             clearInterval(timerInterval);
+            inputScore();
         }
     }, 1000);
 
@@ -124,6 +125,11 @@ function beginTest() {
             inquiryThree();
         });
 
+        if (timeLeft === 0 || timeLeft < 0) {
+            clearInterval(timerInterval);
+            inputScore();
+        }
+
     };
 
     // one more test to check if questions change and penalties are applied
@@ -152,6 +158,11 @@ function beginTest() {
             inquiryFour();
         });
 
+        if (timeLeft === 0 || timeLeft < 0) {
+            clearInterval(timerInterval);
+            inputScore();
+        }
+
     };
 
     function inquiryFour() {
@@ -175,6 +186,11 @@ function beginTest() {
             timeLeft = timeLeft + 21;
             inquiryFive();
         });
+        
+        if (timeLeft === 0 || timeLeft < 0) {
+            clearInterval(timerInterval);
+            inputScore();
+        }
 
     };
 
@@ -193,18 +209,28 @@ function beginTest() {
 
         choiceOne.addEventListener("click", function (){
             timeLeft = timeLeft + 42;
+            inputScore();
         });
         choiceTwo.addEventListener("click", function (){
             timeLeft = timeLeft - 21;
+            inputScore();
         });
         choiceThree.addEventListener("click", function (){
             timeLeft = timeLeft + 7;
+            inputScore();
         });
         choiceFour.addEventListener("click", function (){
             timeLeft = timeLeft - 28;
+            inputScore();
         });
         
     };
-
+        // for some reason I thought stop propagation would work but I may have been using it wrong so I had to adjust it manually
         // tested each choice now for each choice and question should, now reflect 7 second penalty
+
+    function inputScore(){
+        questions.style.display ="none";
+        input.style.display ="block";
+        clearInterval(timerInterval);
+    } 
 }
