@@ -74,4 +74,29 @@ function beginTest() {
     choiceTwo.textContent = (inquiry[0].c2);
     choiceThree.textContent = (inquiry[0].c3);
     choiceFour.textContent = (inquiry[0].c4);
+
+    // event listener for choice, will then run a new function for next question
+    choiceOne.addEventListener("click", function (){
+        timeLeft = timeLeft - 7;
+        inquiryTwo();
+    });
+    choiceTwo.addEventListener("click", function (){
+        inquiryTwo();
+    });
+    choiceThree.addEventListener("click", function (){
+        timeLeft = timeLeft - 7;
+        inquiryTwo();
+    });
+    choiceFour.addEventListener("click", function (){
+        timeLeft = timeLeft - 7;
+        inquiryTwo();
+    });
+
+    function inquiryTwo() {
+        ask.textContent = (inquiry[1].question);
+        choiceOne.textContent = (inquiry[1].c1);
+        choiceTwo.textContent = (inquiry[1].c2);
+        choiceThree.textContent = (inquiry[1].c3);
+        choiceFour.textContent = (inquiry[1].c4);
+    }
 }
