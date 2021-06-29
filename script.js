@@ -57,7 +57,7 @@ function beginTest() {
     var timerInterval = setInterval(function(){
         timeLeft--;
         seconds.textContent = timeLeft;
-        if (timeLeft === 0) {
+        if (timeLeft === 0 || timeLeft < 0) {
             clearInterval(timerInterval);
         }
     }, 1000);
@@ -91,12 +91,110 @@ function beginTest() {
         timeLeft = timeLeft - 7;
         inquiryTwo();
     });
+    
 
+    // tested, will loop 3 more times to adjust for correct choice
     function inquiryTwo() {
         ask.textContent = (inquiry[1].question);
         choiceOne.textContent = (inquiry[1].c1);
         choiceTwo.textContent = (inquiry[1].c2);
         choiceThree.textContent = (inquiry[1].c3);
         choiceFour.textContent = (inquiry[1].c4);
-    }
+
+        // change penalty for correct choice, begin new function for next question
+        choiceOne.addEventListener("click", function (){
+            timeLeft = timeLeft - 7;
+            inquiryThree();
+        });
+        choiceTwo.addEventListener("click", function (){
+            timeLeft = timeLeft - 7;
+            inquiryThree();
+        });
+        choiceThree.addEventListener("click", function (){
+            timeLeft = timeLeft - 7;
+            inquiryThree();
+        });
+        choiceFour.addEventListener("click", function (){
+            inquiryThree();
+        });
+
+    };
+
+    // one more test to check if questions change and penalties are applied
+    // test went well, will now create for the next 2 questions
+    function inquiryThree() {
+        ask.textContent = (inquiry[2].question);
+        choiceOne.textContent = (inquiry[2].c1);
+        choiceTwo.textContent = (inquiry[2].c2);
+        choiceThree.textContent = (inquiry[2].c3);
+        choiceFour.textContent = (inquiry[2].c4);
+
+        choiceOne.addEventListener("click", function (){
+            inquiryFour();
+        });
+        choiceTwo.addEventListener("click", function (){
+            timeLeft = timeLeft - 7;
+            inquiryFour();
+        });
+        choiceThree.addEventListener("click", function (){
+            timeLeft = timeLeft - 7;
+            inquiryFour();
+        });
+        choiceFour.addEventListener("click", function (){
+            timeLeft = timeLeft - 7;
+            inquiryFour();
+        });
+
+    };
+
+    function inquiryFour() {
+        ask.textContent = (inquiry[3].question);
+        choiceOne.textContent = (inquiry[3].c1);
+        choiceTwo.textContent = (inquiry[3].c2);
+        choiceThree.textContent = (inquiry[3].c3);
+        choiceFour.textContent = (inquiry[3].c4);
+
+        choiceOne.addEventListener("click", function (){
+            timeLeft = timeLeft - 7;
+            inquiryFive();
+        });
+        choiceTwo.addEventListener("click", function (){
+            inquiryFive();
+        });
+        choiceThree.addEventListener("click", function (){
+            timeLeft = timeLeft - 7;
+            inquiryFive();
+        });
+        choiceFour.addEventListener("click", function (){
+            timeLeft = timeLeft - 7;
+            inquiryFive();
+        });
+
+    };
+
+
+    // need function to record score based on time left, need to make score section, hide the questions sections
+    // need to create form to record initials, and create section for high score display, will do tomorrow 
+    // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! NOTE
+    function inquiryFive() {
+        ask.textContent = (inquiry[4].question);
+        choiceOne.textContent = (inquiry[4].c1);
+        choiceTwo.textContent = (inquiry[4].c2);
+        choiceThree.textContent = (inquiry[4].c3);
+        choiceFour.textContent = (inquiry[4].c4);
+
+        choiceOne.addEventListener("click", function (){
+            timeLeft = timeLeft - 7;
+        });
+        choiceTwo.addEventListener("click", function (){
+            timeLeft = timeLeft - 7;
+        });
+        choiceThree.addEventListener("click", function (){
+
+        });
+        choiceFour.addEventListener("click", function (){
+            timeLeft = timeLeft - 7;
+        });
+        
+    };
 }
