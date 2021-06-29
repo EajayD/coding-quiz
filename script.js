@@ -9,10 +9,15 @@ var choiceOne = document.querySelector("#select1");
 var choiceTwo = document.querySelector("#select2");
 var choiceThree = document.querySelector("#select3");
 var choiceFour = document.querySelector("#select4");
+var scores = document.querySelector(".scores");
+var input = document.querySelector(".input");
 var timeLeft = 60;
 
 // Hides question area on start up
+// scores and input added to hide, probably could have used setattribute but im already commited to this method
 questions.style.display = "none";
+scores.style.display = "none";
+input.style.display = "none";
 
 var inquiry = [
     { 
@@ -171,6 +176,8 @@ function beginTest() {
         });
 
     };
+
+    // subsequent functions now subtracting even more time when answered even when correct, will need to fix penalty and how it works
 
 
     // need function to record score based on time left, need to make score section, hide the questions sections

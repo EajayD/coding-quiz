@@ -10,7 +10,7 @@
 <body>
     <header>
         <nav class= "highscores">
-            <a href="#">View Highscores</a>
+            <button id= "view">View Highscores</button>
         </nav>
         <div class = "timer">
             <p>Time left: <span id="seconds">60</span> </p>
@@ -46,6 +46,20 @@
             <li class="choice"><button id="select4">Answer4</button>
             </li>
         </ul>
+    </section>
+
+    <!-- new section for highscores, possibly might need a section for input will test, will hide in js -->
+
+    <section class = "scores">
+        <h2>HighScores</h2>
+        <p><span id = initials></span></p>
+    </section>
+
+    <section class = "input">
+        <form id = "form">
+           Initials:  <input type = "text" placeholder="Initials"/><br/>
+           <input type = "button" value="Submit">
+        </form>
     </section>
     
     </main>
