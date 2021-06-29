@@ -43,3 +43,21 @@ button {
     align-content: center;
     cursor: pointer;
 }
+
+.question-list {
+    list-style-type: none;
+}
+
+li {
+    background-color: purple;
+    color: whitesmoke;
+
+}
+
+.choice {
+    padding: 10px;
+}
+
+.choice:hover {
+    opacity: 0.7;
+}
