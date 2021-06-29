@@ -108,7 +108,7 @@ function beginTest() {
 
         // change penalty for correct choice, begin new function for next question
         choiceOne.addEventListener("click", function (){
-            timeLeft = timeLeft - 7;
+
             inquiryThree();
         });
         choiceTwo.addEventListener("click", function (){
@@ -116,10 +116,11 @@ function beginTest() {
             inquiryThree();
         });
         choiceThree.addEventListener("click", function (){
-            timeLeft = timeLeft - 7;
+
             inquiryThree();
         });
         choiceFour.addEventListener("click", function (){
+            timeLeft = timeLeft + 7;
             inquiryThree();
         });
 
@@ -135,18 +136,19 @@ function beginTest() {
         choiceFour.textContent = (inquiry[2].c4);
 
         choiceOne.addEventListener("click", function (){
+            timeLeft = timeLeft + 7
             inquiryFour();
         });
         choiceTwo.addEventListener("click", function (){
-            timeLeft = timeLeft - 7;
+            timeLeft = timeLeft + 7;
             inquiryFour();
         });
         choiceThree.addEventListener("click", function (){
-            timeLeft = timeLeft - 7;
+
             inquiryFour();
         });
         choiceFour.addEventListener("click", function (){
-            timeLeft = timeLeft - 7;
+            timeLeft = timeLeft - 14;
             inquiryFour();
         });
 
@@ -160,18 +162,17 @@ function beginTest() {
         choiceFour.textContent = (inquiry[3].c4);
 
         choiceOne.addEventListener("click", function (){
-            timeLeft = timeLeft - 7;
+            timeLeft = timeLeft - 21;
             inquiryFive();
         });
         choiceTwo.addEventListener("click", function (){
             inquiryFive();
         });
         choiceThree.addEventListener("click", function (){
-            timeLeft = timeLeft - 7;
             inquiryFive();
         });
         choiceFour.addEventListener("click", function (){
-            timeLeft = timeLeft - 7;
+            timeLeft = timeLeft + 21;
             inquiryFive();
         });
 
@@ -191,17 +192,19 @@ function beginTest() {
         choiceFour.textContent = (inquiry[4].c4);
 
         choiceOne.addEventListener("click", function (){
-            timeLeft = timeLeft - 7;
+            timeLeft = timeLeft + 42;
         });
         choiceTwo.addEventListener("click", function (){
-            timeLeft = timeLeft - 7;
+            timeLeft = timeLeft - 21;
         });
         choiceThree.addEventListener("click", function (){
-
+            timeLeft = timeLeft + 7;
         });
         choiceFour.addEventListener("click", function (){
-            timeLeft = timeLeft - 7;
+            timeLeft = timeLeft - 28;
         });
         
     };
+
+        // tested each choice now for each choice and question should, now reflect 7 second penalty
 }
