@@ -14,7 +14,8 @@ var input = document.querySelector(".input");
 var result = document.querySelector(".result");
 var entry = document.querySelector("#entry");
 var submit = document.querySelector("#submit");
-var goBack = document.querySelector("#goback");
+var back = document.querySelector("#goback");
+var init = document.querySelector("#initials");
 var timeLeft = 60;
 // empty array to hold submissions
 var highScore = [];
@@ -66,6 +67,7 @@ var inquiry = [
 function beginTest() {
 
     var timerInterval = setInterval(function(){
+        timeLeft;
         timeLeft--;
         seconds.textContent = timeLeft;
         if (timeLeft === 0 || timeLeft < 0) {
@@ -244,11 +246,13 @@ function beginTest() {
         submitScore();
 
     }
+    return;
 }
-function submitScore(event){
-    event.preventDefault();
+function submitScore(){
+    // event.preventDefault();
 
     var enter = entry.value;
+    var highScore = [];
 // initial commit, need to apply it to the high score page save here for now
     if (enter){
         highScore.push({
@@ -267,12 +271,33 @@ function viewScores(){
     input.style.display = "none";
     instructions.style.display = "none";
     start.style.display = "none";
+
+    // for listing the scores
+    highScore = JSON.parse(localStorage.getItem('highScore'))
+    for (var i = 0; i < highScore.length; i++){
+        var score = document.createElement("div");
+        score.textContent = (i + 1) + ". " + highScore[i].Initials + " - " + highScore[i].Score;
+
+        // appending to display the score
+        init.appendChild(score);
+    }
+};
+
+function goBack(){
+    scores.style.display = "none";
+    input.style.display = "none";
+    instructions.style.display = "block";
+    start.style.display = "initial";
+    timeLeft = 60;
+
+};
+
+// clears scores one by one from the top
+function clearStorage() {
+    localStorage.clear();
+    init.removeChild(init.firstChild);
+
 }
 
-// function goBack(){
-//     scores.style.display = "none";
-//     input.style.display = "none";
-//     instructions.style.display = "block";
-//     start.style.display = "block";
-
-// }
+// crunched on time but it seems when I try to redo the test without refreshing the page, it adds a bunch of scores after you answer the first question
+// also the score gets overwritten but local storage still works correctly, so only one score at a time.
