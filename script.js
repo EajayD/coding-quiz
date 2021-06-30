@@ -11,7 +11,13 @@ var choiceThree = document.querySelector("#select3");
 var choiceFour = document.querySelector("#select4");
 var scores = document.querySelector(".scores");
 var input = document.querySelector(".input");
+var result = document.querySelector(".result");
+var entry = document.querySelector("#entry");
+var submit = document.querySelector("#submit");
+var goBack = document.querySelector("#goback");
 var timeLeft = 60;
+// empty array to hold submissions
+var highScore = [];
 
 // Hides question area on start up
 // scores and input added to hide, probably could have used setattribute but im already commited to this method
@@ -229,8 +235,44 @@ function beginTest() {
         // tested each choice now for each choice and question should, now reflect 7 second penalty
 
     function inputScore(){
+
         questions.style.display ="none";
         input.style.display ="block";
         clearInterval(timerInterval);
-    } 
+
+        result.textContent = timeLeft;
+        submitScore();
+
+    }
 }
+function submitScore(event){
+    event.preventDefault();
+
+    var enter = entry.value;
+// initial commit, need to apply it to the high score page save here for now
+    if (enter){
+        highScore.push({
+            "Initials": enter,
+            "Score": timeLeft
+        });
+        localStorage.setItem("highScore", JSON.stringify(highScore));
+        // create new view function to see the high score page
+        viewScores();
+    }
+}
+submit.addEventListener("click", submitScore);
+
+function viewScores(){
+    scores.style.display = "block";
+    input.style.display = "none";
+    instructions.style.display = "none";
+    start.style.display = "none";
+}
+
+// function goBack(){
+//     scores.style.display = "none";
+//     input.style.display = "none";
+//     instructions.style.display = "block";
+//     start.style.display = "block";
+
+// }

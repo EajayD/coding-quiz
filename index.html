@@ -10,7 +10,7 @@
 <body>
     <header>
         <nav class= "highscores">
-            <button id= "view">View Highscores</button>
+            <button onclick="viewScores()" id= "view">View Highscores</button>
         </nav>
         <div class = "timer">
             <p>Time left: <span id="seconds">60</span> </p>
@@ -52,16 +52,16 @@
 
     <section class = "scores">
         <h2>HighScores</h2>
-        <p><span id = initials>Test</span></p><br/>
+        <p><span id = "initials">Test</span></p><br/>
         <button id = "goback">Go Back</button>
         <button id = "clear">Clear Highscores</button>
     </section>
 
     <section class = "input">
-        <h3>Score:<span class="result"> </span> </h3>
+        <h3>Score: <span class="result"> </span> </h3>
         <form id = "form">
-           Initials: <input type = "text" placeholder="Initials"/><br/>
-           <input type = "button" value="Submit">
+           Initials: <input type = "text" placeholder="Initials" id="entry"/><br/>
+           <input type = "button" value="Submit" id="submit">
         </form>
     </section>
     
